@@ -6,7 +6,7 @@
   "DB":"log"
  },
  "TABLES":[
-  "logs"
+  {"NAME":"logs","EXPIRE":90}
  ],
- "COUNT":10
+ "RESERVE_COUNT":7
 }

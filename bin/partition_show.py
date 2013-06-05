@@ -16,7 +16,7 @@ def config_read(filename):
 def date_show_all_partitions(conn, tablename):
     lists = []
     infotable = "information_schema.PARTITIONS"
-    sql = "SELECT PARTITION_NAME FROM "+ infotable +" WHERE TABLE_NAME='"+ tablename +"' ORDER BY PARTITION_NAME desc;"
+    sql = "SELECT PARTITION_NAME FROM "+ infotable +" WHERE TABLE_NAME='"+ tablename +"' AND PARTITION_NAME!='pmax' ORDER BY PARTITION_NAME desc;"
     cur = conn.cursor()
     cur.execute(sql)
     res = cur.fetchall()
@@ -39,7 +39,7 @@ def main():
     conn = MySQLdb.connect(host=myconf["HOST"], db=myconf["DB"], user=myconf["USER"], passwd=myconf["PASS"])
 
     for table in conf["TABLES"]:
-        partition_exec(conn, table)
+        partition_exec(conn, table["NAME"])
 
     conn.close()
 
