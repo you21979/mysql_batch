@@ -38,7 +38,7 @@ def partition_make_drop_sql(tablename, list):
 
 def date_show_head_partition(conn, tablename):
     infotable = "information_schema.PARTITIONS"
-    sql = "SELECT PARTITION_NAME FROM "+ infotable +" WHERE TABLE_NAME='"+ tablename +"' ORDER BY PARTITION_NAME asc limit 1;"
+    sql = "SELECT PARTITION_NAME FROM "+ infotable +" WHERE TABLE_NAME='"+ tablename +"' AND PARTITION_NAME!='pmax' ORDER BY PARTITION_NAME asc limit 1;"
     cur = conn.cursor()
     cur.execute(sql)
     res = cur.fetchall()
