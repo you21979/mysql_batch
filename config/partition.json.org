@@ -1,0 +1,12 @@
+{
+ "MYSQL":{
+  "HOST":"localhost",
+  "USER":"root",
+  "PASS":"",
+  "DB":"log"
+ },
+ "TABLES":[
+  "logs"
+ ],
+ "COUNT":10
+}
