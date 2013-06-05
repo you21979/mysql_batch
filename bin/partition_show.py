@@ -28,8 +28,6 @@ def date_show_all_partitions(conn, tablename):
 def partition_exec(conn, table):
     lists = date_show_all_partitions(conn, table)
     for v in lists:
-        if v == "pmax":
-            continue
         print table + ":" + v
 
 def main():
